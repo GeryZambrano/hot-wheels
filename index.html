@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>30 de Septiembre - Día del Hot Wheels ❤️</title>
-  <!-- Importación de Google Fonts: Dancing Script y Poppins -->
+  <!-- Importación de Fuentes Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Orbitron:wght@700;900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   
   <style>
     * {
@@ -17,7 +17,7 @@
     }
 
     body {
-      background: radial-gradient(circle at center, #1f0824 0%, #0a010d 100%);
+      background: radial-gradient(circle at 50% 20%, #2b0838 0%, #0d0118 60%, #05000a 100%);
       color: #ffffff;
       min-height: 100vh;
       display: flex;
@@ -26,6 +26,25 @@
       padding: 2rem 1rem;
       overflow-x: hidden;
       font-family: 'Dancing Script', cursive;
+      position: relative;
+    }
+
+    /* Fondo animado de luces neón */
+    body::before {
+      content: "";
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(circle, rgba(255, 0, 110, 0.15) 0%, rgba(0, 240, 255, 0.1) 40%, transparent 70%);
+      z-index: -1;
+      animation: ambientGlow 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes ambientGlow {
+      0% { transform: scale(1) rotate(0deg); }
+      100% { transform: scale(1.1) rotate(5deg); }
     }
 
     header {
@@ -33,205 +52,356 @@
       margin-bottom: 1.5rem;
     }
 
-    .special-date {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(90deg, #ff0055, #ffcc00);
+    .special-badge {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(90deg, #ff0055, #ff9900, #00f0ff, #ff0055);
+      background-size: 300% 300%;
+      animation: rainbowGlow 4s ease infinite;
       color: #000;
-      font-weight: 800;
-      padding: 8px 20px;
-      border-radius: 25px;
-      font-size: 0.9rem;
+      font-weight: 900;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 0.95rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       display: inline-block;
-      box-shadow: 0 0 15px #ff0055;
-      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 20px #ff0055, 0 0 40px #00f0ff;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+    @keyframes rainbowGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     h1 {
       font-family: 'Dancing Script', cursive;
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       font-weight: 700;
-      margin-top: 10px;
-      background: linear-gradient(45deg, #ff0055, #ffcc00, #ff0055);
+      margin-top: 15px;
+      background: linear-gradient(45deg, #ff007f, #ffcc00, #00f0ff, #ff007f);
+      background-size: 200% auto;
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+      animation: shine 3s linear infinite;
+      filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.6));
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
     }
 
     p.subtitle {
-      color: #d1b3ff;
-      font-size: 1.8rem;
+      color: #70ffff;
+      font-size: 1.9rem;
       margin-top: 5px;
+      text-shadow: 0 0 10px #00f0ff;
     }
 
-    .track {
+    /* Pista de carreras luminosa */
+    .track-container {
       width: 100%;
-      max-width: 600px;
-      border-bottom: 2px dashed #ff0055;
+      max-width: 700px;
+      background: linear-gradient(90deg, rgba(255,0,127,0.2), rgba(0,240,255,0.2));
+      border: 2px solid #00f0ff;
+      border-radius: 15px;
       margin: 1.5rem 0;
       position: relative;
-      height: 50px;
+      height: 60px;
+      overflow: hidden;
+      box-shadow: 0 0 20px #00f0ff, inset 0 0 15px #ff007f;
     }
 
-    .moving-car {
-      font-size: 2.5rem;
+    .track-line {
       position: absolute;
-      animation: driveFast 4s linear infinite;
-    }
-
-    @keyframes driveFast {
-      0% { left: -10%; }
-      100% { left: 105%; }
-    }
-
-    .love-card {
-      background: rgba(255, 255, 255, 0.07);
-      border: 2px solid #ff0055;
-      border-radius: 20px;
-      backdrop-filter: blur(12px);
-      max-width: 550px;
+      top: 50%;
       width: 100%;
-      padding: 2rem;
+      height: 2px;
+      border-top: 3px dashed #ffcc00;
+    }
+
+    .moving-cars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .car1 {
+      font-size: 2.2rem;
+      position: absolute;
+      top: 5px;
+      animation: drive1 3.5s linear infinite;
+    }
+
+    .car2 {
+      font-size: 2.2rem;
+      position: absolute;
+      bottom: 5px;
+      animation: drive2 5s linear infinite 1s;
+    }
+
+    @keyframes drive1 {
+      0% { left: -15%; }
+      100% { left: 110%; }
+    }
+
+    @keyframes drive2 {
+      0% { left: -15%; }
+      100% { left: 110%; }
+    }
+
+    /* Tarjeta Principal */
+    .main-card {
+      background: rgba(20, 10, 35, 0.75);
+      border: 2px solid;
+      border-image: linear-gradient(45deg, #ff007f, #00f0ff, #ffcc00) 1;
+      border-radius: 24px;
+      backdrop-filter: blur(15px);
+      max-width: 650px;
+      width: 100%;
+      padding: 2.2rem 1.8rem;
       text-align: center;
-      box-shadow: 0 0 30px rgba(255, 0, 85, 0.3);
+      box-shadow: 0 0 40px rgba(255, 0, 127, 0.4), inset 0 0 20px rgba(0, 240, 255, 0.2);
       margin-bottom: 2rem;
     }
 
-    .love-card h2 {
+    .main-card h2 {
       font-family: 'Dancing Script', cursive;
       color: #ffcc00;
-      font-size: 2.3rem;
+      font-size: 2.6rem;
       margin-bottom: 0.8rem;
+      text-shadow: 0 0 12px #ffcc00;
     }
 
     .love-message {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       line-height: 1.5;
-      color: #f0e6ff;
+      color: #f5e6ff;
     }
 
     .highlight-name {
-      color: #ff0055;
+      color: #ff007f;
       font-weight: bold;
-      font-size: 1.8rem;
-      text-shadow: 0 0 10px #ff0055;
+      font-size: 2rem;
+      text-shadow: 0 0 15px #ff007f, 0 0 30px #ff007f;
     }
 
+    /* Galería de 8 Carritos Neón */
     .cars-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
       gap: 15px;
       width: 100%;
-      max-width: 550px;
-      margin-top: 1.5rem;
+      margin-top: 1.8rem;
     }
 
     .car-box {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #ffcc00;
-      border-radius: 12px;
-      padding: 1rem;
+      border: 2px solid;
+      border-radius: 16px;
+      padding: 1.2rem 0.8rem;
       text-align: center;
-      transition: all 0.3s ease;
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
     }
+
+    /* Colores individuales vibrantes para cada caja */
+    .c-1 { border-color: #ff0055; box-shadow: 0 0 10px rgba(255,0,85,0.3); }
+    .c-2 { border-color: #ffaa00; box-shadow: 0 0 10px rgba(255,170,0,0.3); }
+    .c-3 { border-color: #00f0ff; box-shadow: 0 0 10px rgba(0,240,255,0.3); }
+    .c-4 { border-color: #00ff66; box-shadow: 0 0 10px rgba(0,255,102,0.3); }
+    .c-5 { border-color: #aa00ff; box-shadow: 0 0 10px rgba(170,0,255,0.3); }
+    .c-6 { border-color: #ff00cc; box-shadow: 0 0 10px rgba(255,0,204,0.3); }
+    .c-7 { border-color: #ffff00; box-shadow: 0 0 10px rgba(255,255,0,0.3); }
+    .c-8 { border-color: #ff3300; box-shadow: 0 0 10px rgba(255,51,0,0.3); }
 
     .car-box:hover {
-      transform: translateY(-8px) scale(1.05);
-      background: rgba(255, 0, 85, 0.2);
-      border-color: #ff0055;
-      box-shadow: 0 0 15px #ff0055;
+      transform: translateY(-10px) scale(1.08);
     }
 
+    .c-1:hover { background: rgba(255,0,85,0.25); box-shadow: 0 0 25px #ff0055; }
+    .c-2:hover { background: rgba(255,170,0,0.25); box-shadow: 0 0 25px #ffaa00; }
+    .c-3:hover { background: rgba(0,240,255,0.25); box-shadow: 0 0 25px #00f0ff; }
+    .c-4:hover { background: rgba(0,255,102,0.25); box-shadow: 0 0 25px #00ff66; }
+    .c-5:hover { background: rgba(170,0,255,0.25); box-shadow: 0 0 25px #aa00ff; }
+    .c-6:hover { background: rgba(255,0,204,0.25); box-shadow: 0 0 25px #ff00cc; }
+    .c-7:hover { background: rgba(255,255,0,0.25); box-shadow: 0 0 25px #ffff00; }
+    .c-8:hover { background: rgba(255,51,0,0.25); box-shadow: 0 0 25px #ff3300; }
+
     .car-emoji {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
     }
 
     .car-title {
       font-family: 'Dancing Script', cursive;
-      font-size: 1.3rem;
-      color: #ffcc00;
+      font-size: 1.4rem;
+      color: #ffffff;
       font-weight: bold;
+    }
+
+    /* Modal / Popup de Mensaje Secreto */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, #1f082e 0%, #0a0112 100%);
+      border: 3px solid #00f0ff;
+      border-radius: 25px;
+      padding: 2.5rem 1.8rem;
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 50px #00f0ff, 0 0 20px #ff007f;
+      animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-icon {
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+
+    .modal-text {
+      font-size: 1.8rem;
+      color: #ffcc00;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .btn-close {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(45deg, #ff0055, #ff9900);
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff0055;
     }
 
     .btn-love {
       font-family: 'Poppins', sans-serif;
-      margin-top: 2rem;
-      background: linear-gradient(45deg, #ff0055, #ff5e00);
-      color: white;
+      margin-top: 2.2rem;
+      background: linear-gradient(45deg, #ff0055, #ffcc00, #00f0ff);
+      background-size: 200% auto;
+      color: #000;
       border: none;
-      padding: 14px 28px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      border-radius: 30px;
+      padding: 16px 32px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      border-radius: 35px;
       cursor: pointer;
-      box-shadow: 0 0 20px #ff0055;
-      transition: transform 0.2s ease;
+      box-shadow: 0 0 25px #ff0055;
+      transition: all 0.3s ease;
+      animation: pulseBtn 2s infinite;
     }
 
-    .btn-love:active {
-      transform: scale(0.95);
+    @keyframes pulseBtn {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); box-shadow: 0 0 35px #00f0ff; }
+      100% { transform: scale(1); }
     }
 
     footer {
       font-family: 'Dancing Script', cursive;
       margin-top: 2rem;
-      color: #d1b3ff;
-      font-size: 1.3rem;
+      color: #b3ecff;
+      font-size: 1.4rem;
       text-align: center;
+      text-shadow: 0 0 10px #00f0ff;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="special-date">📅 30 de Septiembre | Día del Carrito</div>
+    <div class="special-badge">🔥 30 DE SEPTIEMBRE | DÍA DEL HOT WHEELS 🔥</div>
     <h1>Garage de mi niño Adrian ❤️</h1>
-    <p class="subtitle">Mi piloto favorito y el coleccionista de mi corazón</p>
+    <p class="subtitle">El piloto de mis sueños y dueño de mi corazón</p>
   </header>
 
-  <div class="track">
-    <div class="moving-car">🏎️💨</div>
+  <!-- Pista con 2 carros compitiendo -->
+  <div class="track-container">
+    <div class="track-line"></div>
+    <div class="moving-cars">
+      <div class="car1">🏎️💨</div>
+      <div class="car2">🚗💨</div>
+    </div>
   </div>
 
-  <main class="love-card">
-    <h2>🔥 Edición Especial de Colección 🔥</h2>
+  <main class="main-card">
+    <h2>🏆 Colección Especial e Incomparable 🏆</h2>
     <p class="love-message">
-      Hoy 30 de septiembre celebramos el día de los carritos de colección, pero para mí, la colección más valiosa del mundo entero es compartir contigo maravillosos momentos, <span class="highlight-name">Mi niño Jake ❤️</span>.
+      Hoy celebramos el día de los carritos de colección, pero mi tesoro más valioso no está en una vitrina: eres tú, <span class="highlight-name">Mi niño Jake ❤️</span>.
     </p>
-    <p class="love-message" style="margin-top: 15px; font-style: italic; color: #ffcc00;">
-      "Eres mi carrito de edición limitada favorito: imposible de encontrar y valiosísimo."
+    <p class="love-message" style="margin-top: 15px; color: #ffcc00;">
+      "Eres mi modelo Treasure Hunt: único en el mundo, brillante y perfecto para mí."
     </p>
     
+    <!-- Grilla de 8 Carritos Interactivos -->
     <div class="cars-grid">
-      <div class="car-box" onclick="alert('❤️️ Marcando nuestra propia ruta en secreto. Las mejores aventuras son las que solo tú y yo conocemos ❤️')">
+      <div class="car-box c-1" onclick="abrirMensaje('🏎️', '❤️ Marcando nuestra propia ruta en secreto. Las mejores aventuras son las que solo tú y yo conocemos.')">
         <span class="car-emoji">🏎️</span>
-        <span class="car-title">El de las Aventuras</span>
+        <span class="car-title">Aventuras</span>
       </div>
 
-      <div class="car-box" onclick="alert('🔥 Un motor V8 sin frenos ni señales de alto: entre más prohibido, más fuerte acelera nuestro corazón ❤️')">
+      <div class="car-box c-2" onclick="abrirMensaje('🚗', '🔥 Un motor V8 a toda velocidad: entre más prohibido, más fuerte acelera mi corazón por ti.')">
         <span class="car-emoji">🚗</span>
         <span class="car-title">Edición Amor</span>
       </div>
 
-      <div class="car-box" onclick="alert('🏆 ¡Eres el primer lugar de mi vida siempre!')">
+      <div class="car-box c-3" onclick="abrirMensaje('🏎️💨', '🏆 ¡Eres y siempre serás el primer lugar en mi vida!')">
         <span class="car-emoji">🏎️💨</span>
         <span class="car-title">El Campeón</span>
       </div>
 
-      <div class="car-box" onclick="alert('✨ Un modelo único en el mundo: tú')">
+      <div class="car-box c-4" onclick="abrirMensaje('🚘', '✨ Super Treasure Hunt: ¡No existe nadie como tú en todo el planeta!')">
         <span class="car-emoji">🚘</span>
-        <span class="car-title">Super Treasure Hunt</span>
+        <span class="car-title">Treasure Hunt</span>
+      </div>
+
+      <div class="car-box c-5" onclick="abrirMensaje('🛻', '💪 Tu amor me da toda la fuerza del mundo para superar cualquier camino.')">
+        <span class="car-emoji">🛻</span>
+        <span class="car-title">Monster Truck</span>
+      </div>
+
+      <div class="car-box c-6" onclick="abrirMensaje('🏎️✨', '⚡ Contigo la vida va a mil por hora pero llena de momentos inolvidables.')">
+        <span class="car-emoji">🏎️✨</span>
+        <span class="car-title">Velocidad Neón</span>
+      </div>
+
+      <div class="car-box c-7" onclick="abrirMensaje('🚕', '📍 No importa el destino, mientras sea contigo el viaje es perfecto.')">
+        <span class="car-emoji">🚕</span>
+        <span class="car-title">Ruta Juntos</span>
+      </div>
+
+      <div class="car-box c-8" onclick="abrirMensaje('🏎️🔥', '💖 ¡Mi niño hermoso, gracias por hacerme tan feliz cada día!')">
+        <span class="car-emoji">🏎️🔥</span>
+        <span class="car-title">Motor de Vida</span>
       </div>
     </div>
 
@@ -239,13 +409,32 @@
   </main>
 
   <footer>
-    Creado a mano con todo mi amor para mi novio guapo Jake 💕<br>
+    Creado con todo mi amor para mi novio guapo Jake 💕<br>
     ¡Feliz 30 de Septiembre!
   </footer>
 
+  <!-- Modal Interactivo -->
+  <div class="modal" id="mensajeModal">
+    <div class="modal-content">
+      <div class="modal-icon" id="modalIcon">🏎️</div>
+      <div class="modal-text" id="modalText">Mensaje secreto</div>
+      <button class="btn-close" onclick="cerrarMensaje()">Cerrar ❤️</button>
+    </div>
+  </div>
+
   <script>
+    function abrirMensaje(icono, texto) {
+      document.getElementById('modalIcon').innerText = icono;
+      document.getElementById('modalText').innerText = texto;
+      document.getElementById('mensajeModal').style.display = 'flex';
+    }
+
+    function cerrarMensaje() {
+      document.getElementById('mensajeModal').style.display = 'none';
+    }
+
     function lanzarSorpresa() {
-      alert("🏎️💨 ¡BRRRRUM! ❤️ ¡Te amo con todo mi corazón! Gracias por ser mi persona favorita hoy y siempre. Feliz día del carrito.");
+      abrirMensaje('🏎️💥💖', '¡BRRRRUM! 💥 Te amo con todo mi corazón. Eres mi piloto favorito hoy y para siempre. ¡Feliz día del carrito mi amor!');
     }
   </script>
 
